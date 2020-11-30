@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>meditation_timer</title>
+    <script src="js/jquery-3.5.1.min.js"></script> 
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <div id="mySidebar" class="sidebar">
+      <a href="javascript:void(0)" class="closebtn" onclick="toggleNav()">×</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Clients</a>
+      <a href="#">Contact</a>
+    </div>
+
+    <div id="main">
+      <button class="openbtn" onclick="toggleNav()">☰ Open Sidebar</button>  
+      <h2>Collapsed Sidebar</h2>
+      <p>Click on the hamburger menu/bar icon to open the sidebar</p>
+    </div>
+
+    <script>
+      function toggleNav() {
+              $("#mySidebar").toggleClass("toggled");
+              $("#main").toggleClass("toggled");
+
+            }
+
+    </script>
+  </body>
+</html>
