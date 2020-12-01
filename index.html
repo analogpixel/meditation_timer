@@ -5,16 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>meditation_timer</title>
     <script src="js/jquery-3.5.1.min.js"></script> 
+    <script src="js/NoSleep.min.js"></script> 
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
 
     <div id="mySidebar" class="sidebar">
       <a href="javascript:void(0)" class="closebtn" onclick="toggleNav()">×</a>
-      <a href="#">About</a>
-      <a href="#">Services</a>
-      <a href="#">Clients</a>
-      <a href="#">Contact</a>
+      <br>
+      Minutes:<input type=text id=timer_value>
+
+      <button onClick="start_session()">Start Session</button>
     </div>
 
     <div id="main">
@@ -24,11 +25,45 @@
     </div>
 
     <script>
-      function toggleNav() {
-              $("#mySidebar").toggleClass("toggled");
-              $("#main").toggleClass("toggled");
+      var noSleep = new NoSleep();
+      var session_length = 0;
+      var seconds_since_start = 0;
+      var second_timer_func;
 
-            }
+      function chime() {
+        var audio = new Audio('sounds/bell2.wav');
+        audio.play();
+      }
+     
+      function end_session() {
+       console.log("Session ended");
+       window.clearTimeout(second_timer_func);
+        toggleNav();
+      }
+      
+      function second_updates() {
+        seconds_since_start+=1;
+        console.log(seconds_since_start);
+      }
+
+      function start_session() {
+        toggleNav();
+        console.log("Session started");
+        session_length = parseInt($("#timer_value").val());
+        chime();
+        second_timer_func = setInterval( second_updates, 1000);
+        setTimeout( end_session, session_length * 60 * 1000);
+      }
+
+      function toggleNav() {
+        $("#mySidebar").toggleClass("toggled");
+        $("#main").toggleClass("toggled");
+      }
+
+      document.addEventListener('click', function enableNoSleep() {
+        document.removeEventListener('click', enableNoSleep, false);
+        noSleep.enable();
+      }, false);
 
     </script>
   </body>
