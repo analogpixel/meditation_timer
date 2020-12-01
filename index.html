@@ -10,7 +10,7 @@
   </head>
   <body>
 
-    <div id="mySidebar" class="sidebar">
+    <div id="mySidebar" class="sidebar toggled">
       <a href="javascript:void(0)" class="closebtn" onclick="toggleNav()">×</a>
       <br>
       Minutes:<input type=text id=timer_value>
@@ -18,10 +18,9 @@
       <button onClick="start_session()">Start Session</button>
     </div>
 
-    <div id="main">
+    <div id="main" class="toggled">
       <button class="openbtn" onclick="toggleNav()">☰ Open Sidebar</button>  
-      <h2>Collapsed Sidebar</h2>
-      <p>Click on the hamburger menu/bar icon to open the sidebar</p>
+      <div id=circle></div>
     </div>
 
     <script>
@@ -29,6 +28,7 @@
       var session_length = 0;
       var seconds_since_start = 0;
       var second_timer_func;
+        $("#circle").hide();
 
       function chime() {
         var audio = new Audio('sounds/bell2.wav');
@@ -39,6 +39,7 @@
        console.log("Session ended");
        window.clearTimeout(second_timer_func);
         toggleNav();
+        $("#circle").hide();
       }
       
       function second_updates() {
@@ -48,6 +49,7 @@
 
       function start_session() {
         toggleNav();
+        $("#circle").show();
         console.log("Session started");
         session_length = parseInt($("#timer_value").val());
         chime();
