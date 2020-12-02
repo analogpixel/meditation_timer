@@ -29,10 +29,13 @@ a {
   width: 200px;
   height: 200px;
   border-radius: 50%;
+}
+
+.circle_animation {
   animation-name: ex2;
   animation-duration: 10s;
   background-color: #4f3a65;
-     animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
 }
 
 #mySideBar {
