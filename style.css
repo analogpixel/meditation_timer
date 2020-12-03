@@ -1,6 +1,5 @@
 body {
   font-family: "Lato", sans-serif;
-  background: #f2f6f5;
   background-color: #222;
 }
 
@@ -15,13 +14,12 @@ a {
 }
 
 @keyframes ex2 {
-  0% {transform: scale(.5, .5);}
-  50% {transform: scale(2.0, 2.0);}
-  100% {transform: scale(.5, .5);}
+  0% {background: #111; transform: scale(.5, .5);}
+  50% {background: #333; transform: scale(2.0, 2.0);}
+  100% {background: #111; transform: scale(.5, .5);}
 }
 
 #circle {
-  // visibility: hidden;
   position: fixed; /* or fixed */
   top: 50%;
   left: 50%;
