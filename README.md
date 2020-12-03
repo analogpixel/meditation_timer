@@ -1,7 +1,5 @@
 # Simple Meditation Timer
 
-* click on breath change
-* set breath lenght
-* css cleanup
-
+* check ding sound, is it a 10 min loop?
+* fade background to black on start
 
