@@ -20,11 +20,12 @@
 
       <br><br>
       <button onClick="start_session()">Start Session</button>
+      <button onClick="openFullscreen()">Full Screen</button>
       <div id="time_left"></div> 
     </div>
 
     <div id="main" class="toggled">
-      <button class="openbtn" onclick="toggleNav()">☰ Open Sidebar</button>  
+      <button class="openbtn" onclick="toggleNav()">☰</button>  
       <div id=circle class="circle_animation"></div>
     </div>
 
@@ -37,6 +38,7 @@
             $("#circle").hide();
             var bell = new Audio('sounds/bell2.wav');
             var tick = new Audio('sounds/tick.wav');
+            var elem = document.documentElement;
 
             var gui = new Gui("myGui", [   
                     {'name': 'Minutes', 'type': 'string', 'default': 20},
@@ -108,6 +110,27 @@
                     $("#mySidebar").toggleClass("toggled");
                     $("#main").toggleClass("toggled");
                   }
+
+              function openFullscreen() {
+                if (elem.requestFullscreen) {
+                  elem.requestFullscreen();
+                } else if (elem.webkitRequestFullscreen) { /* Safari */
+                  elem.webkitRequestFullscreen();
+                } else if (elem.msRequestFullscreen) { /* IE11 */
+                  elem.msRequestFullscreen();
+                }
+              }
+
+              /* Close fullscreen */
+              function closeFullscreen() {
+                if (document.exitFullscreen) {
+                  document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) { /* Safari */
+                  document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) { /* IE11 */
+                  document.msExitFullscreen();
+                }
+              }
 
             document.addEventListener('click', function enableNoSleep() {
                     document.removeEventListener('click', enableNoSleep, false);

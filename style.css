@@ -1,6 +1,7 @@
 body {
   font-family: "Lato", sans-serif;
   background: #f2f6f5;
+  background-color: #222;
 }
 
 a {
@@ -34,17 +35,16 @@ a {
 .circle_animation {
   animation-name: ex2;
   animation-duration: 10s;
-  background-color: #4f3a65;
+  background-color: #444;
   animation-iteration-count: infinite;
 }
 
 #mySideBar {
   width: 0px;
   height: 100vh;
-}
-
+} 
 #mySidebar.toggled {
-  background: #63707e;
+  background: #555;
   width: 250px;
   height: 100vh;
 }
@@ -61,7 +61,7 @@ a {
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #aaa;
+  background-color: #222;
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
